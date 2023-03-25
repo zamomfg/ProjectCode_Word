@@ -2,8 +2,8 @@ on: [push]
 name: Azure ARM
 
 env:
-  LOCATION: northeurope
-  LOCATION_NAME: northeu
+  LOCATION: "northeurope"
+  LOCATION_NAME: "northeu"
 
 jobs:
   build-and-deploy:
@@ -26,6 +26,6 @@ jobs:
         region: $LOCATION
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         template: ./azure_infra/main.bicep
-        parameters: 'location=$LOCATION locationName=$LOCATION_NAME'
+        parameters: "location=$LOCATION locationName=$LOCATION_NAME"
         # resourceGroupName: ${{ secrets.AZURE_RG }}
         # failOnStdErr: false
