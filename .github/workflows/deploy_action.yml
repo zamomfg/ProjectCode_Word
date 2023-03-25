@@ -1,9 +1,9 @@
-on: [push]
-name: Azure ARM
-
 env:
   LOCATION: "northeurope"
   LOCATION_NAME: "northeu"
+
+on: [push]
+name: Azure ARM
 
 jobs:
   build-and-deploy:
