@@ -1,12 +1,13 @@
 
 param environment string = 'prod'
-param location string = 'northeurope'
+param location string
+param locationName string
 var webAppName = 'CodeGenerator'
 
 targetScope = 'subscription'
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: 'rg-${webAppName}-${environment}-${location}'
+  name: 'rg-${webAppName}-${environment}-${locationName}'
   location: location
 }
 
@@ -16,5 +17,7 @@ module app_service './app_service.bicep' = {
   params: {
     webAppName: webAppName
     location: location
+    locationName: locationName
+    environment: environment
   }
 }

@@ -1,5 +1,10 @@
 on: [push]
 name: Azure ARM
+
+env:
+  LOCATION: northeurope
+  LOCATION_NAME: northeu
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -18,8 +23,9 @@ jobs:
       uses: azure/arm-deploy@v1
       with:
         scope: subscription
+        region: $LOCATION
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        # resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./azure_infra/main.bicep
-        # parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+        parameters: 'location=$LOCATION locationName=$LOCATION_NAME'
+        # resourceGroupName: ${{ secrets.AZURE_RG }}
         # failOnStdErr: false
