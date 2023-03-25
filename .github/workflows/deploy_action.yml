@@ -3,6 +3,10 @@ env:
   LOCATION_NAME: "northeu"
 
 on: [push]
+
+name: Print env
+  run: echo "$LOCATION $LOCATION_NAME"
+  
 name: Azure ARM
 
 jobs:
