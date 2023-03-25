@@ -10,8 +10,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name:
-      run: echo "$LOCATION $LOCATION_NAME"
+
       # Checkout code
     - uses: actions/checkout@main
 
