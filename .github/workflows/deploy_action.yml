@@ -1,6 +1,6 @@
 env:
-  LOCATION: "northeurope"
-  LOCATION_NAME: "northeu" # fix. these damn env variables wont expand in the parameters section of arm deploy
+  LOCATION: "westeurope"
+  LOCATION_NAME: "westeu" 
 
 on: [push]
 
@@ -27,6 +27,4 @@ jobs:
         region: ${{ env.LOCATION }}
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         template: ./azure_infra/main.bicep
-        parameters: "location=${{ env.LOCATION }} locationName=${{ env.LOCATION_NAME }}" # TODO fix with env variables
-        # resourceGroupName: ${{ secrets.AZURE_RG }}
-        # failOnStdErr: false
+        parameters: "location=${{ env.LOCATION }} locationName=${{ env.LOCATION_NAME }}"
