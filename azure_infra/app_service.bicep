@@ -20,13 +20,13 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   kind: 'linux'
 }
 
-// resource appService 'Microsoft.Web/sites@2020-06-01' = {
-//   name: webSiteName
-//   location: location
-//   properties: {
-//     serverFarmId: appServicePlan.id
-//     siteConfig: {
-//       linuxFxVersion: linuxFxVersion
-//     }
-//   }
-// }
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+    }
+  }
+}

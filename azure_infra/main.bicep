@@ -13,7 +13,7 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
 
 module app_service './app_service.bicep' = {
   name: 'app'
-  scope: resourceGroup
+  scope: az.resourceGroup(resourceGroup.name)
   params: {
     webAppName: webAppName
     location: location
