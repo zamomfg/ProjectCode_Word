@@ -1,5 +1,5 @@
 
-param environment string = 'prod'
+param environment string = 'lab'
 param location string
 param locationName string
 var webAppName = 'CodeGenerator'
