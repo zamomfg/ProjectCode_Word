@@ -30,3 +30,12 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
     }
   }
 }
+
+resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
+  name: '${appService.name}/web'
+  properties: {
+    repoUrl: 'https://github.com/zamomfg/ProjectCode_Word'
+    branch: 'main'
+    isManualIntegration: true
+  }
+}
